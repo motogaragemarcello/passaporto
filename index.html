@@ -106,7 +106,7 @@ html, body { margin: 0; background: var(--carta); color: var(--inchiostro); font
   function mostra(c, d) {
     var interventi = lista(d.interventi), oggi = oggiIso(), n = interventi.length;
     var html = '<div class="moto"><div class="nome">' + esc(d.moto || 'Moto') + '</div><div class="det">' +
-      (d.targa ? '<span class="pill targa">' + esc(d.targa) + '</span>' : '') + (d.km ? '<span class="pill">' + esc(km(d.km)) + '</span>' : '') + '</div></div>';
+      (d.targa ? '<span class="pill targa">' + esc(d.targa) + '</span>' : '') + (d.anno ? '<span class="pill">Anno ' + esc(d.anno) + '</span>' : '') + (d.km ? '<span class="pill">' + esc(km(d.km)) + '</span>' : '') + '</div></div>';
     if (n) html += '<div class="fiducia"><span class="s">🛡️</span><span>Moto seguita da Moto Garage Marcello' + (d.dal ? ' da ' + esc(meseAnno(d.dal)) : '') + ' · ' + n + (n === 1 ? ' intervento registrato' : ' interventi registrati') + ' dall\'officina</span></div>';
     if (d.prossimo) {
       var scad = d.prossimo < oggi, p = parti(d.prossimo), fine = new Date(p[0], p[1] - 1, p[2] || 1), inizio = new Date(p[0] - 1, p[1] - 1, p[2] || 1);
